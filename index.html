@@ -7,6 +7,7 @@
   <meta name="description"
     content="Artificial Histopedia - learn about the world's history through videos, documents, and stories that inspire curiosity and understanding.">
   <title>ARTIFICIAL HISTOPEDIA - Atish Mondal</title>
+
   <style>
     /* ======== RESET ======== */
     * {
@@ -16,7 +17,6 @@
       font-family: "Poppins", sans-serif;
     }
 
-    /* ======== BODY ======== */
     body {
       background-color: #f9fafc;
       color: #222;
@@ -42,18 +42,10 @@
       height: 55px;
     }
 
-    /* ======== NAVBAR ======== */
     nav {
       display: flex;
       align-items: center;
       position: relative;
-    }
-
-    .menu-icon {
-      display: none;
-      font-size: 28px;
-      cursor: pointer;
-      color: #e0e1dd;
     }
 
     .nav-links {
@@ -73,6 +65,14 @@
       color: #00b4d8;
     }
 
+    .menu-icon {
+      display: none;
+      font-size: 30px;
+      color: #e0e1dd;
+      cursor: pointer;
+      user-select: none;
+    }
+
     /* ======== HERO SECTION ======== */
     .hero {
       position: relative;
@@ -88,43 +88,44 @@
       filter: brightness(40%);
     }
 
-    .hero h1 {
+    .hero-content {
       position: absolute;
-      top: 35%;
+      top: 40%;
       left: 50%;
       transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 800px;
+    }
+
+    .hero h1 {
       font-size: 3.5rem;
       letter-spacing: 2px;
       color: #fff;
       text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+      margin-bottom: 10px;
     }
 
     .hero h4 {
-      position: absolute;
-      top: 45%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       font-size: 1.5rem;
       color: #d4f1f9;
       text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+      margin-bottom: 35px;
     }
 
     /* ======== SEARCH BAR ======== */
-    .hero form {
-      position: absolute;
-      top: 58%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    .search-bar {
       display: flex;
-      width: 60%;
+      justify-content: center;
+      width: 100%;
       max-width: 500px;
+      margin: 0 auto;
       background: rgba(255, 255, 255, 0.1);
       border-radius: 50px;
       overflow: hidden;
       backdrop-filter: blur(6px);
     }
 
-    .hero input[type="search"] {
+    .search-bar input[type="search"] {
       flex: 1;
       padding: 12px 20px;
       border: none;
@@ -134,11 +135,11 @@
       font-size: 1rem;
     }
 
-    .hero input::placeholder {
+    .search-bar input::placeholder {
       color: #eee;
     }
 
-    .hero button {
+    .search-bar button {
       background: #00b4d8;
       color: white;
       border: none;
@@ -148,7 +149,7 @@
       transition: background 0.3s ease;
     }
 
-    .hero button:hover {
+    .search-bar button:hover {
       background: #0096c7;
     }
 
@@ -166,7 +167,7 @@
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     }
 
-    /* ======== POPULAR CATEGORIES ======== */
+    /* ======== CATEGORIES ======== */
     .categories {
       text-align: center;
       padding: 60px 20px;
@@ -219,7 +220,6 @@
       color: #0d1b2a;
     }
 
-    /* ======== FOOTER ======== */
     footer {
       background: #0d1b2a;
       color: #e0e1dd;
@@ -237,11 +237,10 @@
       text-decoration: underline;
     }
 
-    /* ======== RESPONSIVE MENU ======== */
+    /* ======== RESPONSIVE ======== */
     @media (max-width: 768px) {
       header {
-        flex-direction: column;
-        text-align: center;
+        flex-wrap: wrap;
         padding: 15px 20px;
       }
 
@@ -252,10 +251,10 @@
       .nav-links {
         display: none;
         flex-direction: column;
-        background: #14213d;
         position: absolute;
         top: 70px;
         right: 0;
+        background: #14213d;
         width: 100%;
         text-align: center;
         padding: 15px 0;
@@ -274,7 +273,7 @@
         font-size: 2.4rem;
       }
 
-      .hero form {
+      .search-bar {
         width: 80%;
       }
 
@@ -287,14 +286,9 @@
 
 <body>
 
-  <!-- Header Area -->
+  <!-- Header -->
   <header>
-    <!-- Logo -->
-    <div>
-      <img src="img/AH logo.png" alt="Artificial Histopedia Logo">
-    </div>
-
-    <!-- Navigation Bar -->
+    <div><img src="img/AH logo.png" alt="Artificial Histopedia Logo"></div>
     <nav>
       <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
       <div class="nav-links">
@@ -309,81 +303,65 @@
   </header>
 
   <!-- Hero Section -->
-  <main>
-    <section class="hero">
-      <img src="img/AH background.png" alt="Artificial Histopedia Background">
+  <section class="hero">
+    <img src="img/AH background.png" alt="Artificial Histopedia Background">
+
+    <div class="hero-content">
       <h1>Artificial Histopedia</h1>
       <h4>Atish Mondal</h4>
 
-      <form>
-        <input type="search" placeholder="Search anything here...">
+      <!-- Search Bar -->
+      <form class="search-bar" id="searchForm">
+        <input type="search" id="searchInput" placeholder="Search anything here...">
         <button type="submit">Search</button>
       </form>
+    </div>
+  </section>
 
-      <p>
-        Welcome to <strong>Artificial Histopedia</strong> — the visionary creation of Atish Mondal.
-        Here, history is not just told, it is experienced.
-        You will uncover timeless knowledge, profound insights, and extraordinary ideas—brought
-        to life with breathtaking visuals and a storytelling style that feels both immersive and
-        unforgettable.
-      </p>
-      <p>
-        Every frame is designed to engage your mind, ignite your curiosity, and entertain you
-        with a cinematic touch that makes the past feel alive before your eyes.
-        Step inside this world of history reimagined, where learning becomes an experience and
-        entertainment meets wisdom.
-      </p>
-      <p>
-        To witness these remarkable journeys through time, simply click on
-        <a href="https://www.youtube.com/channel/UC8qAzWxBL98VNbpoZuKvsww" target="_blank">Artificial Histopedia</a>.
-      </p>
-    </section>
+  <!-- Categories -->
+  <section class="categories">
+    <h2>Popular Categories</h2>
 
-    <!-- Popular Categories Section -->
-    <section class="categories">
-      <h2>Popular Categories</h2>
+    <div class="category-card">
+      <img src="img/AH background.png" alt="World History">
+      <h3>World History</h3>
+    </div>
 
-      <div class="category-card">
-        <img src="img/AH background.png" alt="World History">
-        <h3>World History</h3>
-      </div>
+    <div class="category-card">
+      <img src="img/mythology.png" alt="Mythological History">
+      <h3>Mythological History</h3>
+    </div>
 
-      <div class="category-card">
-        <img src="img/mythology.png" alt="Mythological History">
-        <h3>Mythological History</h3>
-      </div>
+    <div class="category-card">
+      <img src="img/civilization.jpeg" alt="Ancient Civilization">
+      <h3>Ancient Civilization</h3>
+    </div>
 
-      <div class="category-card">
-        <img src="img/civilization.jpeg" alt="Ancient Civilization">
-        <h3>Ancient Civilization</h3>
-      </div>
+    <div class="category-card">
+      <img src="img/wonder.jpeg" alt="Ancient Wonder">
+      <h3>Ancient Wonder</h3>
+    </div>
 
-      <div class="category-card">
-        <img src="img/wonder.jpeg" alt="Ancient Wonder">
-        <h3>Ancient Wonder</h3>
-      </div>
+    <div class="category-card">
+      <img src="img/lost history.jpeg" alt="Lost History">
+      <h3>Lost History</h3>
+    </div>
 
-      <div class="category-card">
-        <img src="img/lost history.jpeg" alt="Lost History">
-        <h3>Lost History</h3>
-      </div>
+    <div class="category-card">
+      <img src="img/mordarn.png" alt="Modern History">
+      <h3>Modern History</h3>
+    </div>
 
-      <div class="category-card">
-        <img src="img/mordarn.png" alt="Modern History">
-        <h3>Modern History</h3>
-      </div>
+    <div class="category-card">
+      <img src="img/popular.png" alt="Popular History">
+      <h3>Popular History</h3>
+    </div>
 
-      <div class="category-card">
-        <img src="img/popular.png" alt="Popular History">
-        <h3>Popular History</h3>
-      </div>
-
-      <div class="category-card">
-        <img src="img/proof.webp" alt="Historical Debates: Proof & Paradox">
-        <h3>Historical Debates: Proof & Paradox</h3>
-      </div>
-    </section>
-  </main>
+    <div class="category-card">
+      <img src="img/proof.webp" alt="Historical Debates: Proof & Paradox">
+      <h3>Historical Debates: Proof & Paradox</h3>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer>
@@ -392,7 +370,7 @@
   </footer>
 
   <script>
-    // ======== SCROLL ANIMATION FOR HEADER ========
+    // ======== SCROLL HEADER EFFECT ========
     window.addEventListener("scroll", () => {
       const header = document.querySelector("header");
       if (window.scrollY > 50) {
@@ -404,13 +382,15 @@
       }
     });
 
-    // ======== SEARCH BAR ANIMATION ========
-    const searchForm = document.querySelector(".hero form");
-    const searchInput = document.querySelector(".hero input");
+    // ======== TOGGLE MENU ========
+    function toggleMenu() {
+      document.querySelector(".nav-links").classList.toggle("active");
+    }
 
-    searchForm.addEventListener("submit", (e) => {
+    // ======== SEARCH BAR FUNCTION ========
+    document.getElementById("searchForm").addEventListener("submit", (e) => {
       e.preventDefault();
-      const query = searchInput.value.trim();
+      const query = document.getElementById("searchInput").value.trim();
       if (query) {
         alert(`Searching for: ${query}`);
       } else {
@@ -418,7 +398,7 @@
       }
     });
 
-    // ======== CATEGORY CARD HOVER EFFECT ========
+    // ======== CATEGORY CARD EFFECT ========
     document.querySelectorAll(".category-card").forEach((card) => {
       card.addEventListener("mouseenter", () => {
         card.style.boxShadow = "0 12px 40px rgba(0, 180, 216, 0.5)";
@@ -427,13 +407,6 @@
         card.style.boxShadow = "0 8px 20px rgba(0, 0, 0, 0.15)";
       });
     });
-
-    // ======== TOGGLE MOBILE MENU ========
-    function toggleMenu() {
-      const navLinks = document.querySelector(".nav-links");
-      navLinks.classList.toggle("active");
-    }
   </script>
 </body>
-
 </html>
